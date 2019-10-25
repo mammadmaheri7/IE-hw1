@@ -4,7 +4,7 @@
   "description": "hw1-95243052",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node ./web01/index.js"
   },
   "repository": {
     "type": "git",
