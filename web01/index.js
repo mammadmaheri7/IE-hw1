@@ -11,6 +11,7 @@ app.use(bodyParser.json())
 
 let polygons;
 if (polygons === undefined) {
+    console.log('reading new info')
     fs.readFile(`${__dirname}/polygons.json`, (err, data) => {
         if (err) throw err
         polygons = JSON.parse(data)
