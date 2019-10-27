@@ -6,8 +6,9 @@ const inside = require('point-in-polygon')
 const app = express()
 const port = 3000
 
-app.use(bodyParser.json())
+console.log('--------------------------- NEW APP ')
 
+app.use(bodyParser.json())
 
 let polygons;
 if (polygons === undefined) {
@@ -20,10 +21,6 @@ if (polygons === undefined) {
 }
 
 
-
-
-console.log('--------------------------- NEW APP ')
-console.log(polygons)
 app.use('/' , (req, res, next)=>{
     console.log('Middleware Called!')
     next();
@@ -43,7 +40,6 @@ app.get('/gis/testpoint',(req,res) => {
 });
 
 app.put('/gis/addpolygon',(req,res)=>{
-    console.log('here')
     console.log(req.body)
     polygons.features.push(req.body)
     fs.writeFile(`${__dirname}/polygons.json`,JSON.stringify(polygons),(err)=>{
@@ -53,17 +49,13 @@ app.put('/gis/addpolygon',(req,res)=>{
 });
 
 app.get('/', (req, res) => {
-    console.log(req.query)
-    
-
     res.send( whiskers.render(`
         <html>
         <body>
         <h1>Hello team a new rendering engine is out!</h1>
-        <ul>
-            <li>Foo is:{query.foo}</li>
-            <li>Bar is:{query.bar}</li>
-        <ul>
+            <P>
+                welcome {req.query}
+            </P
         </body>
         </html>
     `, req))
