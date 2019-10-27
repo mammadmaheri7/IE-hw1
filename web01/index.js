@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
         <body>
         <h1>Hello team a new rendering engine is out!</h1>
             <P>
-                welcome {req.query}
+                welcome {query.name}
             </P>
         </body>
         </html>
