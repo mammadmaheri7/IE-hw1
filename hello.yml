@@ -1,8 +1,8 @@
 config:
-  target: 'hw1-ie-sbu.herokuapp.com'
+  target: 'https://hw1-ie-sbu.herokuapp.com'
   phases:
-    - duration: 60
-      arrivalRate: 20
+    - duration: 30
+      arrivalRate: 10
   defaults:
     headers:
       x-my-service-auth: '987401838271002188298567'
@@ -10,3 +10,8 @@ scenarios:
   - flow:
     - get:
         url: "/gis/testpoint"
+        qs:
+          lat: 33.7243
+          long: 53.8165
+          
+
