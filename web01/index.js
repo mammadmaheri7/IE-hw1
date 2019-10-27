@@ -35,7 +35,7 @@ app.get('/gis/testpoint',(req,res) => {
             result.polygons.push(element.properties.name)
         }
     });
-    res.send(result) ;
+    res.send(result.polygons) ;
     
 });
 
